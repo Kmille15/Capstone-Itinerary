@@ -1,33 +1,9 @@
 "use strict";
-/*
-app.factory("DataFactory", function($q, $http, FBCreds) {
-
-	const getAllEvents = (eventsID) => {
-		let allEvents = [];
-		console.log("this is running", `${FBCreds.databaseURL}/events.json?orderBy="uid"`);
-		return $q((resolve, reject) => {
-			$http.get(`${FBCreds.databaseURL}/events.json?orderBy="uid"`)
-			.then((eventsObjs) => {
-				let eventsCollection = eventsObjs.data;
-				Object.keys(eventsCollection).forEach((key) => {
-					eventsCollection[key].id = key;
-					allEvents.push(eventsCollection[key]);
-				});
-				resolve(allEvents);
-			})
-			.catch((error) => {
-				reject(error);
-			});
-		});
-	};
-	return {getAllEvents};
-});
-*/
-
 
 app.factory("DataFactory", function ($q, $http, FBCreds) {
 
-      	console.log(`${FBCreds.databaseURL}/events.json`);
+
+  //console.log(`${FBCreds.databaseURL}/events.json`);
   let getAllEvents= ()=>{
     let items = [];
     return $q((resolve, reject)=>{
@@ -51,7 +27,6 @@ app.factory("DataFactory", function ($q, $http, FBCreds) {
   };
 
 
-
   	const getEvent = (eventID) => {
 		return $q((resolve, reject) => {
 			$http.get(`${FBCreds.databaseURL}/events/${eventID}.json`)
@@ -65,7 +40,6 @@ app.factory("DataFactory", function ($q, $http, FBCreds) {
 			});
 		});
 	};
-
 
 
 	const addEvent = (eventObj) => {
@@ -82,26 +56,39 @@ app.factory("DataFactory", function ($q, $http, FBCreds) {
 	};
 
 
-/*
-const getAllUserEvents = (eventID) => {
+	const getAllUserEvents = (user) => {
 		let userEvents = [];
-		console.log(`${FBCreds.databaseURL}/users.json?orderBy="boardId"&equalTo="${boardID}"`);
+		//console.log("user test", user);
+		//console.log(`${FBCreds.databaseURL}/users.json?orderBy="uid"&equalTo="${user}"`);
 		return $q((resolve, reject) => {
-			$http.get(`${FBCreds.databaseURL}/users.json?orderBy="boardId"&equalTo="${boardID}"`)
-			.then((pinObjs) => {
-				let pinCollection = pinObjs.data;
-				Object.keys(pinCollection).forEach((key) => {
-					pinCollection[key].id = key;
-					userEvents.push(pinCollection[key]);
+			$http.get(`${FBCreds.databaseURL}/users.json?orderBy="uid"&equalTo="${user}"`)
+			.then((userEventsObj) => {
+				let userEventsCollection = userEventsObj.data;
+				console.log("testing", userEventsObj);
+				Object.keys(userEventsCollection).forEach((key) => {
+					userEventsCollection[key].id = key;
+					userEvents.push(userEventsCollection[key]);
 				});
-				resolve(pins);
+				resolve(userEvents);
 			})
 			.catch((error) => {
 				reject(error);
 			});
 		});
 	};
-*/
 
-  return {getAllEvents, getEvent, addEvent};
+
+	const deleteYourEvent = (eventID) => {
+		return $q ( (resolve, reject) => {
+			$http.delete(`${FBCreds.databaseURL}/users/${eventID}.json`)
+			.then( (response) => {
+				resolve(response);
+			})
+			.catch( (error) => {
+				reject(error);
+			});
+		});
+	};
+
+  return {getAllEvents, getEvent, addEvent, getAllUserEvents, deleteYourEvent};
 });

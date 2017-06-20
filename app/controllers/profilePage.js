@@ -3,18 +3,22 @@ console.log("ProfilePageCtrl is working");
 
 app.controller("ProfilePageCtrl", function ($scope, DataFactory, $routeParams, $location, AuthFactory, $route) {
 
+
+  let isAuth = AuthFactory.isAuthenticated();
   let user = AuthFactory.getUser();
 
-  DataFactory.getAllUserEvents(user)
+ let information = function(){
+  DataFactory.getAllUserEvents(AuthFactory.getUser())
     .then( (events) => {
       $scope.events = events;
       console.log("These are the users events", $scope.events);
     });
+};
 
-
-  $scope.delBoard = function(boardId) {
-    // console.log("boardId", boardId);
-    DataFactory.deleteYourBoard(boardId)
+      console.log("user test2", user);
+  $scope.delEvent = function(eventID) {
+     console.log("eventID", eventID);
+    DataFactory.deleteYourEvent(eventID)
       .then(function(){
         $route.reload();
       });
@@ -23,5 +27,6 @@ app.controller("ProfilePageCtrl", function ($scope, DataFactory, $routeParams, $
   // $scope.goToEditView = (id) => {
   //     $location.path(`/editBoards/${id}`);
   //   };
+  information();
 
 });

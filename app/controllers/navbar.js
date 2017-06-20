@@ -7,6 +7,7 @@ app.controller('NavBarCtrl', function($scope, AuthFactory, $window, $location){
 		if (user) {
 			$scope.isLoggedIn = true;
 			console.log("currentUser logged in", user, $scope.isLoggedIn);
+			AuthFactory.isAuthenticated();
 			$scope.$apply();
 		}else{
 			$scope.isLoggedIn = false;
