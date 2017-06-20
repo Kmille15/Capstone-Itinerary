@@ -1,0 +1,48 @@
+Where to start?
+DONE 1. Need data to display.
+DONE 2. Need to be able to display in dom
+3. Need to be able to target specific data to display.
+4. Need authorization to work
+5. Need to add events and guides to user profile.
+6. User able to delete events and guides from profile page.
+7. User able to share events and guides from contentDetail page.
+
+8. Need to build function that shows all current events.
+9. Need to build a function that shows all guides
+9. Need to build calendar that holds events, ability to cycle through months.
+10. Need a function to go through data and only show events with tickets
+11. Need a function(archives) that shows all events and guides posted. Able to query also..
+
+
+
+
+
+Partials:
+*May not need footer partial or controller since it won't change*
+
+Navbar
+Footer
+HomeView
+Events Page(all events)
+ContentDetail
+Profile Page
+About Us
+Contact
+Guides
+Tickets(show events who's tickets are not equal to null)
+
+
+Also need partials for Policy, FAQS, Archives(all events, guides, etc is here, possible to query from this page?)
+Store/Product Page/Checkout *stretch goal
+
+Controllers:
+Navbar
+Footer
+HomeView
+ContentDetail
+Profile Page
+About Us
+Contact
+Guides
+Tickets
+Events

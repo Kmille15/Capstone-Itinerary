@@ -1,0 +1,23 @@
+<!--
+-clickable logo that sends home
+-seach box that searches entire database( need landing page for search results)
+-Menu Bar including links to Home Events Guides Tickets About
+-Menu Bar includes Login/Register that changes to Profile link after signing in(need login/register modal/view)
+-->
+<nav class="navbar navbar-default" ng-controller="NavBarCtrl">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+      <a class="navbar-brand" ng-href="/">The Itinerary</a>
+      <a ng-href="#!/UserProfile">Profile</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li ng-show="!isActive"><a ng-href="#!/login">Login</a></li>
+        <li ng-show="isActive"><a ng-href="#!/logout">Logout</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

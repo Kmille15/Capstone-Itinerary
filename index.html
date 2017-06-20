@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<body ng-app="ItineraryApp">
+    <div ng-include="'./partials/navBar.html'"></div>
+	<div>
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1 main-container">
+                <div class="col-xs-12" ng-view>
+
+                </div>
+            </div>
+        </div>
+	</div>
+
+<script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="lib/node_modules/angular/angular.min.js"></script>
+<script type="text/javascript" src="lib/node_modules/angular-route/angular-route.min.js"></script>
+<script type="text/javascript" src="lib/node_modules/firebase/firebase.js"></script>
+
+<script type="text/javascript" src="app/app.js"></script>
+<script type="text/javascript" src="app/values/fb-Creds.js"></script>
+
+<script type="text/javascript" src="app/factories/authFactory.js"></script>
+<script src="app/factories/dataFactory.js"></script>
+<script type="text/javascript" src="app/controllers/navbar.js"></script>
+<script type="text/javascript" src="app/controllers/auth.js"></script>
+<script src="app/controllers/events.js"></script>
+<script src="app/controllers/profilePage.js"></script>
+
+<script type="text/javascript" src="app/controllers/contentDetails.js"></script>
+
+
+
+
+
+</body>
+</html>

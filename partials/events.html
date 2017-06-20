@@ -1,0 +1,8 @@
+<h1>Events Page</h1>
+<!-- You are setting taco as the name for the individual objects in your array. allEvents is looking for the given name in the controller -->
+    <div ng-repeat="taco in allEvents" ng-click="getEvent(taco.id);">
+
+      <p>{{ taco.name }}<br>{{ taco.description}}<br>{{taco.date}}</p>
+
+    </div>
+
